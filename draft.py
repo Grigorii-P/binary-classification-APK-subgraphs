@@ -10,10 +10,6 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-x = tf.constant([0.3,0.6,0.49,0.51])
-r = tf.round(x)
+a = np.array([[1,2,3],[4,5,2]])
 
-with tf.Session() as sess:
-    print(sess.run(r))
-
-print()
+print(np.amin(a))
