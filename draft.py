@@ -10,6 +10,11 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 
-a = np.array([[1,2,3],[4,5,2]])
+# x,y=get_data()
+x = np.array([[1,2,3],[4,5,6]])
+y = np.array([1,2])
 
-print(np.amin(a))
+for a,b in batch(x,y,1):
+    print(a,b)
+
+print()
