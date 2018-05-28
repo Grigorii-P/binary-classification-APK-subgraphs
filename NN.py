@@ -58,6 +58,7 @@ saver = tf.train.Saver()
 # accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 #TODO early stopping
+start = time()
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
     sess.run(init)
@@ -77,5 +78,8 @@ with tf.Session() as sess:
               % (epoch + 1, 100. * train_accuracy, 100. * test_accuracy, loss_val))
 
     print(np.amax(sess.run(subgraph_embeddings)), np.amin(sess.run(subgraph_embeddings)))
+    training_time = time()-start
+    print("==============//==============")
+    print("training time %.1f sec" % training_time)
     #TODO save model
     # saver.save(sess, "/home/pogorelov/model_tf/model")
