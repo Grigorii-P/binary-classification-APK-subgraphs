@@ -4,6 +4,7 @@
     <list default="true" id="1ee4542d-c763-4fe1-aadf-cdd8c21c90d8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/NN.py" afterPath="$PROJECT_DIR$/NN.py" />
       <change beforePath="$PROJECT_DIR$/draft.py" afterPath="$PROJECT_DIR$/draft.py" />
+      <change beforePath="$PROJECT_DIR$/utils.py" afterPath="$PROJECT_DIR$/utils.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,11 +18,11 @@
       <file leaf-file-name="NN.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NN.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="661">
-              <caret line="81" column="41" lean-forward="false" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+            <state relative-caret-position="1407">
+              <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <element signature="e#1896#1976#0" expanded="false" />
+                <element signature="e#2038#2118#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -30,8 +31,8 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+            <state relative-caret-position="609">
+              <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -42,8 +43,8 @@
       <file leaf-file-name="draft.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/draft.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="147">
+              <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -111,7 +112,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="SearchEverywhereHistoryKey" value="to&#9;ACTION&#9;ActivateTODOToolWindow&#10;todo&#9;ACTION&#9;ActivateTODOToolWindow&#10;tod&#9;ACTION&#9;ActivateTODOToolWindow" />
+    <property name="SearchEverywhereHistoryKey" value="tod&#9;ACTION&#9;ActivateTODOToolWindow&#10;to&#9;ACTION&#9;ActivateTODOToolWindow&#10;todo&#9;ACTION&#9;ActivateTODOToolWindow" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -125,7 +126,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.draft">
+  <component name="RunManager" selected="Python.NN">
     <configuration name="NN" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -168,8 +169,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.draft" />
-        <item index="1" class="java.lang.String" itemvalue="Python.NN" />
+        <item index="0" class="java.lang.String" itemvalue="Python.NN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.draft" />
       </list>
     </recent_temporary>
   </component>
@@ -226,9 +227,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="57" />
+      <option name="time" value="61" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="y_test" />
+        <watch expression="y_test" />
+        <watch expression="p" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../venv_py36/Lib/site-packages/tensorflow/python/framework/ops.py">
@@ -278,33 +285,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/draft.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="147">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="81" column="41" lean-forward="false" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+        <state relative-caret-position="1407">
+          <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
-            <element signature="e#1896#1976#0" expanded="false" />
+            <element signature="e#2038#2118#0" expanded="false" />
           </folding>
         </state>
       </provider>

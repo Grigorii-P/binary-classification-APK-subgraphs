@@ -3,25 +3,28 @@ from utils import *
 from sklearn.model_selection import train_test_split
 from time import time
 
+path_model = 'model\\'
 
 X, Y = get_data()
-limit = 10000
-X = X[:limit]
-Y = Y[:limit]
+# limit = 10000
+# X = X[:limit]
+# Y = Y[:limit]
 
-X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.1, random_state=42)
-#todo make test size more accurate
-_, X_train_acc, _, y_train_acc = train_test_split(X_train, y_train, test_size=0.15, random_state=42)
+p1 = 0.1
+p2 = p1/(1-p1)
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=p1, shuffle=True, random_state=42)
+_, X_train_acc, _, y_train_acc = train_test_split(X_train, y_train, test_size=p2, random_state=42)
 X_test, y_test = np.array(X_test), np.reshape(np.array(y_test), newshape=(len(y_test),1))
 X_train_acc, y_train_acc = np.array(X_train_acc), np.reshape(np.array(y_train_acc), newshape=(len(y_train_acc),1))
 
 num_subgraphs = len(X_train[0])
-embedding_size = 20
+embedding_size = 50
 hidden_1 = 50
-hidden_2 = 10
-bias_value = 0.1
-learning_rate = 0.01
-epochs = 20
+hidden_2 = 20
+hidden_3 = 5
+bias_value = 0
+learning_rate = 0.001
+epochs = 25
 num_batch = 128
 # beta = 0.01
 
@@ -32,15 +35,16 @@ target = tf.placeholder(tf.float32, shape=([None, 1]), name='label')
 subgraph_embeddings = tf.Variable(
         tf.random_normal([num_subgraphs, embedding_size]), name='subgraph_embeddings')
 
-bias = tf.constant(bias_value, shape=[embedding_size], name='bias')
+bias = tf.constant(bias_value, shape=[embedding_size], dtype=tf.float32, name='bias')
 
 graph_embeddings = tf.add(tf.matmul(input, subgraph_embeddings), bias, name='graph_embeddings')
 
 dense_1 = tf.layers.dense(inputs=graph_embeddings, units=hidden_1, activation=tf.nn.relu)
-dropout = tf.layers.dropout(inputs=dense_1, rate=0.4)
-dense_2 = tf.layers.dense(inputs=dropout, units=hidden_2, activation=tf.nn.relu)
+# dropout = tf.layers.dropout(inputs=dense_1, rate=0.4)
+dense_2 = tf.layers.dense(inputs=dense_1, units=hidden_2, activation=tf.nn.relu)
+dense_3 = tf.layers.dense(inputs=dense_2, units=hidden_3, activation=tf.nn.relu)
 
-output = tf.layers.dense(inputs=dense_2, units=1, activation=tf.nn.sigmoid, name='output')
+output = tf.layers.dense(inputs=dense_3, units=1, activation=tf.nn.sigmoid, name='output')
 
 loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=output, labels=target), name='loss')
 # regularizer = tf.nn.l2_loss(subgraph_embeddings)
@@ -57,7 +61,8 @@ saver = tf.train.Saver()
 # correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
 # accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
-#TODO early stopping
+#early stopping
+#learning rate - exponential decay
 start = time()
 init = tf.global_variables_initializer()
 with tf.Session() as sess:
@@ -77,9 +82,11 @@ with tf.Session() as sess:
         print("Epoch = %d, train = %.2f%%, test = %.2f%%, loss_val = %.2f"
               % (epoch + 1, 100. * train_accuracy, 100. * test_accuracy, loss_val))
 
-    print(np.amax(sess.run(subgraph_embeddings)), np.amin(sess.run(subgraph_embeddings)))
+    # p = sess.run(predict, feed_dict={input: X_test, target: y_test})
+
+    print("==============//==============")
+    print('max weight %f, min weight %f' % (np.amax(sess.run(subgraph_embeddings)), np.amin(sess.run(subgraph_embeddings))))
     training_time = time()-start
     print("==============//==============")
     print("training time %.1f sec" % training_time)
-    #TODO save model
-    # saver.save(sess, "/home/pogorelov/model_tf/model")
+    saver.save(sess, path_model+"model")
