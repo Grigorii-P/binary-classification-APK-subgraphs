@@ -22,10 +22,10 @@ embedding_size = 50
 hidden_1 = 50
 hidden_2 = 20
 hidden_3 = 5
-bias_value = 0
+bias_value = 0.1
 learning_rate = 0.001
 epochs = 25
-num_batch = 128
+num_batch = 256
 # beta = 0.01
 
 
